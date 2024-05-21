@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
     Button Multiplication;
     Button Division;
     TextView Result;
+    Button Yearly;
+    Button Monthly;
+    Button Weekly;
    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         Multiplication = findViewById(R.id.btnMul);
         Division = findViewById(R.id.btnDiv);
         Result = findViewById(R.id.txtResult);
+        Yearly = findViewById(R.id.btnYearly);
+        Monthly = findViewById(R.id.btnMonthly);
+        Weekly = findViewById(R.id.btnWeekly);
 
 
         Addition.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +75,32 @@ public class MainActivity extends AppCompatActivity {
 
                Result.setText(String.valueOf(results));
 
+           }
+       });
+       Weekly.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               double myRPH = Double.parseDouble(Num1.getText().toString());
+               double myHours = Double.parseDouble(Num2.getText().toString());
+               double Results = myRPH * myHours;
+
+               Result.setText(String.valueOf(Results));
+           }
+       });
+       Yearly.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               double myRPH = Double.parseDouble(Num1.getText().toString());
+               double myHours = Double.parseDouble(Num2.getText().toString());
+               Result.setText(String.valueOf(myRPH * myHours * 52));
+           }
+       });
+       Monthly.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               double myRPH = Double.parseDouble(Num1.getText().toString());
+               double myHours = Double.parseDouble(Num2.getText().toString());
+               Result.setText(String.valueOf((myRPH * myHours * 52)/12));
            }
        });
     }
